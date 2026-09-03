@@ -154,8 +154,7 @@
   .hero .glow.g1{width:520px; height:520px; top:-180px; right:-140px; background:radial-gradient(circle, rgba(5,199,217,0.28), transparent 70%);}
   .hero .glow.g2{width:360px; height:360px; bottom:-160px; left:-120px; background:radial-gradient(circle, rgba(7,91,143,0.35), transparent 70%);}
 
-  .hero-grid{position:relative; z-index:1; display:grid; grid-template-columns:1fr; gap:48px; align-items:center;}
-  @media(min-width:960px){ .hero-grid{grid-template-columns:1.15fr 0.85fr; gap:56px;} }
+  .hero-grid{position:relative; z-index:1; max-width:700px;}
 
   .hero h1{font-size:clamp(2.2rem, 4vw + 1rem, 3.4rem); color:var(--white); max-width:15ch;}
   .hero p.lead{margin-top:20px; font-size:1.08rem; color:var(--text-secondary); max-width:48ch;}
@@ -169,19 +168,6 @@
   }
   .chip svg{width:15px; height:15px; stroke:var(--gold-light); fill:none; stroke-width:1.8;}
 
-  .photo-slot{
-    position:relative; border-radius:32px 14px 32px 14px; overflow:hidden; aspect-ratio:4/5;
-    background:linear-gradient(155deg, var(--navy-2) 0%, var(--blue-3) 60%, var(--turquoise) 130%);
-    border:1px solid rgba(223,175,69,0.3); box-shadow:var(--shadow-blue);
-    display:flex; align-items:flex-end; justify-content:center;
-  }
-  .photo-slot .arc{position:absolute; top:-30%; right:-20%; width:70%; height:70%; border:1.5px solid rgba(255,217,120,0.35); border-radius:50%;}
-  .photo-slot .icon{
-    width:64px; height:64px; border-radius:50%; border:1px solid rgba(255,217,120,0.5); background:rgba(3,27,61,0.35);
-    display:flex; align-items:center; justify-content:center; margin-bottom:34px;
-  }
-  .photo-slot .icon svg{width:28px; height:28px; stroke:var(--gold-light); fill:none; stroke-width:1.6;}
-  .photo-slot .cap{position:absolute; bottom:16px; left:16px; right:16px; text-align:center; font-size:0.72rem; color:rgba(234,247,255,0.65);}
 
   /* ---------- TRUST BAR ---------- */
   .trust{background:var(--navy-2); border-top:1px solid var(--line-soft); border-bottom:1px solid var(--line-soft); padding:30px 0;}
@@ -222,12 +208,15 @@
   .modal-card p{color:var(--text-secondary); font-size:0.95rem; margin-bottom:22px; flex:1;}
 
   /* ---------- SOBRE ---------- */
-  .about-grid{display:grid; grid-template-columns:1fr; gap:44px; align-items:center;}
-  @media(min-width:900px){ .about-grid{grid-template-columns:0.8fr 1.2fr; gap:64px;} }
-  .about-points{margin-top:22px; display:flex; flex-direction:column; gap:12px;}
+  .about-grid{display:grid; grid-template-columns:1fr; gap:28px;}
+  @media(min-width:760px){ .about-grid{grid-template-columns:1.3fr 1fr; gap:50px; align-items:start;} }
+  .about-lead{color:var(--text-secondary); max-width:58ch; font-size:1.05rem;}
+  .about-points{
+    background:var(--navy-2); border:1px solid var(--line-soft); border-radius:var(--r-lg);
+    padding:26px 24px; display:flex; flex-direction:column; gap:14px;
+  }
   .about-points li{display:flex; align-items:flex-start; gap:10px; font-size:0.96rem; color:var(--white-blue);}
   .about-points svg{width:18px; height:18px; margin-top:2px; stroke:var(--gold); fill:none; stroke-width:2; flex:none;}
-  .about-text p{color:var(--text-secondary); max-width:58ch; margin-bottom:14px; font-size:1.02rem;}
 
   /* ---------- BENEFÍCIOS ---------- */
   .benefits-grid{display:grid; grid-template-columns:1fr; gap:18px;}
@@ -372,14 +361,6 @@
           <span class="chip"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3.4"/></svg> Planejamento</span>
         </div>
       </div>
-      <div class="reveal" role="img" aria-label="Espaço reservado para fotografia profissional de Erica Moura">
-        <div class="photo-slot">
-          <div class="arc" aria-hidden="true"></div>
-          <div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="9" r="3.6"/><path d="M5,20 C5,15.5 8,13.5 12,13.5 C16,13.5 19,15.5 19,20"/></svg></div>
-          <span class="cap">Espaço reservado para fotografia profissional</span>
-        </div>
-        <!-- PLACEHOLDER: inserir fotografia profissional da Erica Moura aqui (recorte limpo, formato retrato) -->
-      </div>
     </div>
   </section>
 
@@ -459,19 +440,13 @@
 
   <!-- SOBRE -->
   <section class="section" id="sobre">
-    <div class="container about-grid">
-      <div class="reveal" role="img" aria-label="Espaço reservado para fotografia de Erica Moura">
-        <div class="photo-slot" style="aspect-ratio:1/1;">
-          <div class="arc" aria-hidden="true"></div>
-          <div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="9" r="3.6"/><path d="M5,20 C5,15.5 8,13.5 12,13.5 C16,13.5 19,15.5 19,20"/></svg></div>
-          <span class="cap">Espaço reservado para fotografia</span>
-        </div>
-        <!-- PLACEHOLDER: inserir fotografia real da Erica Moura aqui -->
-      </div>
-      <div class="about-text reveal">
+    <div class="container">
+      <div class="section-head reveal">
         <span class="eyebrow">Sobre a Erica</span>
         <h2>Um atendimento próximo para decisões importantes.</h2>
-        <p>Sou Erica Moura, consultora de Consórcios Unifisa. Meu trabalho começa entendendo o seu objetivo, o prazo desejado e a capacidade de planejamento. A partir disso, apresento as possibilidades com clareza e acompanho você durante cada etapa.</p>
+      </div>
+      <div class="about-grid reveal">
+        <p class="about-lead">Sou Erica Moura, consultora de Consórcios Unifisa. Meu trabalho começa entendendo o seu objetivo, o prazo desejado e a capacidade de planejamento. A partir disso, apresento as possibilidades com clareza e acompanho você durante cada etapa.</p>
         <ul class="about-points">
           <li><svg viewBox="0 0 24 24"><path d="M4,12 L10,18 L20,6"/></svg> Atendimento próximo</li>
           <li><svg viewBox="0 0 24 24"><path d="M4,12 L10,18 L20,6"/></svg> Explicações claras</li>
